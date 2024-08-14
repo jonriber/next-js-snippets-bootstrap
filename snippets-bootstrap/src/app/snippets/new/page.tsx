@@ -7,34 +7,38 @@ export default function NewSnippetPage() {
 
   const [formState,action] = useFormState(createSnippet,{message: ""})
 
-  return (
+return (
     <form action={action}>
-        <h3 className="font-bold m-3">Create a Snippet</h3>
-        <div className="flex flex-col gap-4">
-          <div className="flex gap-4">
-            <label className="w-12" htmlFor="title">
-              Title
-            </label>
-            <input 
-              id="title"
-              className="border rounded p-2 w-full" 
-              name="title" 
-              />
-          </div>
+            <h3 className="font-bold m-3">Create a Snippet</h3>
+            <div className="form-group">
+                <div className="row">
+                    <label className="col-sm-2 col-form-label" htmlFor="title">
+                        Title
+                    </label>
+                    <div className="col-sm-10">
+                        <input 
+                            id="title"
+                            className="form-control" 
+                            name="title" 
+                        />
+                    </div>
+                </div>
 
-          <div className="flex gap-4">
-            <label className="w-12" htmlFor="code">
-              Code
-            </label>
-            <textarea 
-              id="code"
-              className="border rounded p-2 w-full" 
-              name="code" 
-              />
-          </div>
-          {formState.message ? <div className="my-2 p-2 bg-red-200 border rounded border-red-200">{formState.message}</div> : null}
-          <button type="submit" className="rounded p-2 bg-blue-200">Create Snippet</button>
-        </div>
+                <div className="row">
+                    <label className="col-sm-2 col-form-label" htmlFor="code">
+                        Code
+                    </label>
+                    <div className="col-sm-10">
+                        <textarea 
+                            id="code"
+                            className="form-control" 
+                            name="code" 
+                        />
+                    </div>
+                </div>
+                {formState.message ? <div className="my-2 p-2 bg-danger text-white">{formState.message}</div> : null}
+                <button type="submit" className="btn btn-primary">Create Snippet</button>
+            </div>
     </form>
-  );
+);
 }

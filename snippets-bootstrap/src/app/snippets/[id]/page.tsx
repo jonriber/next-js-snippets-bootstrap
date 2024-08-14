@@ -24,16 +24,16 @@ export default async function Snippet(props: SnippetProps) {
 
     return (
         <>
-            <div className="flex m-4 justify-between items-center">
-                <h1 className="text-xl font-bold">{snippet.title}</h1>
-                <div className="flex gap-4">
+            <div className="d-flex m-4 justify-content-between align-items-center">
+                <h1 className="text-xl font-weight-bold">{snippet.title}</h1>
+                <div className="d-flex gap-4">
                     <Link href={`/snippets/${snippet.id}/edit`} className="p-2 border rounded">Edit</Link>
                     <form action={deleteSnippetAction}>
-                        <button className="p-2 border rounded border-red-200 bg-red-200">Delete</button>
+                        <button className="p-2 border rounded border-danger bg-danger">Delete</button>
                     </form>
                 </div>
             </div>
-            <pre className="p-3 border rounded bg-gray-200 border-gray-200">
+            <pre className="p-3 border rounded bg-secondary border-secondary">
                 <code>{snippet.code}</code>
             </pre>
         </>
